@@ -1,0 +1,62 @@
+{
+  "name": "@examcrush/learning-helper",
+  "version": "0.1.0",
+  "description": "MIT-licensed active-recall learning helper: turn study notes into flashcards, cloze items, and MCQ drafts — local-first, youth-safe, UNICEF DPG-aligned.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "examcrush-learning-helper": "./dist/cli/main.js"
+  },
+  "files": [
+    "dist",
+    "examples",
+    "LICENSE",
+    "README.md",
+    "BOUNDARY.md",
+    "PRIVACY.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.cjs",
+    "cli": "node dist/cli/main.js",
+    "demo": "npm run build && node dist/cli/main.js generate examples/waec-biology-notes.md --format json --out /tmp/examcrush-demo.json && node dist/cli/main.js generate examples/waec-biology-notes.md --format anki-csv --out /tmp/examcrush-demo.csv",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "education",
+    "active-recall",
+    "flashcards",
+    "mcq",
+    "open-source",
+    "digital-public-good",
+    "unicef",
+    "examcrush"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hall-of-bits/examcrush-learning-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hall-of-bits/examcrush-learning-helper/issues"
+  },
+  "homepage": "https://github.com/Hall-of-bits/examcrush-learning-helper#readme",
+  "author": "ExamCrush Ltd",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  }
+}
